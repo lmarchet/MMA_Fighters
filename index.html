@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Mixed Martial Arts</title>
+	<!-- Latest bootstrap link -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<div class="container"><br>
+		<header class="jumbotron">
+			<h1>UFC FIGHTERS</h1>
+		</header>
+
+		<!-- showButtons will be created and shown here  -->
+		<div id="buttons-list"></div><br>
+
+		<!-- Form to submit new fighter to the array -->
+		<form class="navbar-form navbar-right" id="fighter-form">
+			<div class="form-group">
+				<label for="fighter-input"><h3>Add MMA figher</h3></label>
+			</div>
+			<input type="text" id="fighter-input"><br>
+
+			<!-- Button creates new fighter to be added to the list-->
+			<input id="add-fighter" button type="submit" class="btn btn-deafult" value="Submit">
+		</form>
+
+		<!-- Giphy will be created and shown here -->
+		<div id="fighter-view" data-state="still"></div>
+	</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <!-- Latest jquery library link -->
+	<script type="text/javascript" src="javascript.js"></script>    <!-- link to javascript code -->
+</body>
+</html>

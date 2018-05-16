@@ -1,0 +1,67 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: white;
+	color: black;
+}
+
+.container {
+	position: relative;
+}
+
+header.jumbotron {
+	background: blue;
+	border-radius: 24px;
+	color: white;
+}
+
+p {
+	font-family: 'Space Mono', monospace;
+	padding-top: 10px;
+	font-size: 18px;
+
+}
+
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-style: bold;
+	font-size: 40px;
+	text-align: center;
+	position: relative;
+	letter-spacing: 8px;
+
+}
+
+h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+.mma {
+	background: black;
+	border: 12px;
+	color: white;
+	font-style: arial bold;
+	font-size: 15px;
+	padding: 10px;
+	margin: 5px;
+	margin-top: 20px;
+
+}
+
+#fighter-form {
+	text-align: right;
+}
+
+
+
+input#fighter-input {
+	color: #000;
+}
+
+input#add-fighter.btn,btn-deafult {
+	color: #000;
+}
