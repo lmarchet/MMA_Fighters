@@ -1,11 +1,10 @@
-
 $(document).ready(function() {
   // used the variable name "topics" as per homework instructions, even though it is not my preference....
   var topics = ["GSP", "Daniel Cormier", "Stipe Miocic", "conor mcgregor","Tyron Woodley", "Max Holloway", "TJ Dillashaw", "Demetrious Johnson", "Chis Cyborg", "Amanda Nunes", "Rose Namajunas", "Chuck Liddell"];	
 
   //  function declaration that creates buttons based on the list of topics array
   function showButtons(){
-    $("#button-list").html("");
+
     // for loop to go through the array and create the buttomns
     // need to add class and atributes and name
     // have to append the buttons in the webpage
@@ -30,13 +29,11 @@ $(document).ready(function() {
 
     // saved the Giphy API key generated for me by Giphy into the variable query URL: V84y8eRd2dBpYNfwJdjqzO0AY4MzYkkb 
     // switched the protocol in the queryURL from http to https, as per homework instructions as the app may not work properly with Github Pages
-    
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + martialArts + "&api_key=V84y8eRd2dBpYNfwJdjqzO0AY4MzYkkb&limit=10";
     console.log(queryURL); // console log for testing purposes only. Can be removed
     
     /* AJAX call for the mma fighter selected when a button has been clicked and returns
     all the details pertained to that fighter */
-
     $.ajax({
     url: queryURL,
     method: "GET"
@@ -45,16 +42,14 @@ $(document).ready(function() {
       var fighterResult = response.data;
       console.log(fighterResult); // returns all fighter's detail from Giphy
 
-      $("#fighters-view").html(""); //clearns the div before adding more images
-
-      // A for loop to create divs with fighters images
+       // A for loop to create divs with fighters images
       for (var j=0; j < fighterResult.length; j++) {
         var imageDiv = $("<div>");
-        var imageView = fighterResult[j].images.fixed_height.url;
-        var still = fighterResult[j].images.fixed_height_still.url;
-        //console.log(imageView);  // console log for testing purposes only. Can be removed
+        var imageView = fighterResult[j].images.downsized_medium.url;
+        var imageStill = fighterResult[j].images.downsized_still.url;
+        console.log(imageView);  // console log for testing purposes only. Can be removed
 
-        var image = $("<img>").attr("src", still).attr("data-animate", imageView).attr("data-still", still);
+        var image = $("<img>").attr("src", imageStill).attr("data-animate", imageView).attr("data-still", imageStill);
             image.attr("data-state", "still");
             $("#fighter-view").prepend(image);
             image.on("click", animateFighter);
@@ -63,19 +58,19 @@ $(document).ready(function() {
         var rating = fighterResult[j].rating;
             //  console.log(rating);// console log for testing purposes only. Can be removed
 
-        var movieRate= $("<p>").text("Rating: " + rating);
+        var movieRate= $("<p>").text("Rating: " + rating + "Viewer discretion is advised.");
         $("#fighter-view").prepend(movieRate);
       } // end of for loop
     }); // end of ajax call
 
     function animateFighter() { 
       var state = $(this).attr("data-state");
-        // console.log(state);
+      console.log(state);
       if (state == "still") {
         $(this).attr("src", $(this).data("animate"));
         $(this).attr("data-state", "animate");
       }
-    else {
+      else {
         $(this).attr("src", $(this).data("still"));
         $(this).attr("data-state", "still");
       }
