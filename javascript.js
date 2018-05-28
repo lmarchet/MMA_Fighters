@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // used the variable name "topics" as per homework instructions, even though it is not my preference....
-  var topics = ["GSP", "Daniel Cormier", "Stipe Miocic", "conor mcgregor","Tyron Woodley", "Max Holloway", "TJ Dillashaw", "Demetrious Johnson", "Chis Cyborg", "Amanda Nunes", "Rose Namajunas", "Chuck Liddell"];	
+  var topics = ["GSP", "Daniel Cormier", "Stipe Miocic", "Conor McGregor","Tyron Woodley", "Max Holloway", "TJ Dillashaw", "Demetrious Johnson", "Chis Cyborg", "Amanda Nunes", "Rose Namajunas", "Chuck Liddell"];	
 
   //  function declaration that creates buttons based on the list of topics array
   function showButtons(){
@@ -8,7 +8,7 @@ $(document).ready(function() {
     // for loop to go through the array and create the buttomns
     // need to add class and atributes and name
     // have to append the buttons in the webpage
-
+    $("#button-list").html(""); // cleans the button list before a new buttom is added and showButtons function add back the buttons
     for (var i = 0; i < topics.length; i++) {
       var plugButton = $("<button>");
 
@@ -80,13 +80,15 @@ $(document).ready(function() {
 
   //document .on click #2 - adding new button to array
   $(document).on("click", "#add-fighter", function() {
-    if ($("#movie-input").val() == ""){
+    if ($("#fighter-input").val() == "") {
       alert("Come on dude!!!! Give me a name: ");
     }
     else {
-      var movies = $("#movie-input").val().trim();
+      var movies = $("#fighter-input").val().trim();
       topics.push(movies);
-      $("#movie-input").val("");
+      $("#fighter-input").val("");
+      $("button-list").html("");
+
       showButtons();
       return false;
     }
